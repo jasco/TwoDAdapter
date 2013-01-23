@@ -79,6 +79,13 @@ ScrollListener, ViewTreeObserver.OnGlobalLayoutListener {
 		ViewTreeObserver treeObserver = mTwoDScrollView.getViewTreeObserver();
 		treeObserver.removeGlobalOnLayoutListener(this);
 	}
+	
+	Animation mViewAnimation;
+	public void setViewAnimation(Animation animation){
+		if(null != animation){
+			mViewAnimation = animation;
+		}
+	}
 
 	/**
 	 * Method called when the content must be redrawn
@@ -131,6 +138,9 @@ ScrollListener, ViewTreeObserver.OnGlobalLayoutListener {
 		// Remove non visible views and push them in bucket
 		for (int i = 0; i < mViewsAddedWillDisappear.size(); i++) {
 			V view = mViewsAddedWillDisappear.pop();
+			if(null != mViewAnimation)
+				view.setAnimation(mViewAnimation);
+				
 			mTwoDContent.removeView(view);
 			mViewsBucket.push(view);
 		}
