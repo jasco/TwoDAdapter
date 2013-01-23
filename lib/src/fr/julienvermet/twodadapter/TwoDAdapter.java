@@ -27,6 +27,7 @@ import android.os.Build;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewTreeObserver;
+import android.view.animation.Animation;
 import android.widget.RelativeLayout;
 import android.widget.RelativeLayout.LayoutParams;
 import fr.julienvermet.twodadapter.widget.TwoDScrollView;
